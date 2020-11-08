@@ -8,6 +8,9 @@ pub enum CoreParams {
 	/// Insert string to file name.
 	#[structopt(name = "insert")]
 	Insert(InsertCmd),
+	/// Rename file name by specify rules.
+	#[structopt(name = "rename")]
+	Rename(RenameCmd),
 	/// Do nothing.
 	None,
 }
@@ -45,6 +48,26 @@ pub struct InsertCmd {
 	pub position: String,
 	#[structopt(long = "str")]
 	pub str: String,
+	/// Rename directory also.
 	#[structopt(long = "rename-dir")]
 	pub rename_dir: bool,
+}
+
+#[derive(Clone, Debug, StructOpt)]
+pub struct RenameCmd {
+	/// Shared params
+	#[structopt(flatten)]
+	pub shared: SharedParam,
+	#[structopt(long = "shard-str", default_value = "")]
+	pub shard_str: String,
+	#[structopt(long = "connector", default_value = "")]
+	pub connector: String,
+	#[structopt(long = "sequence_mode", default_value = 0)]
+	pub sequence_mode: int,
+	#[structopt(long = "sequence_start", default_value = 0)]
+	pub sequence_start: int,
+	#[structopt(long = "sequence_position", default_value = 0)]
+	pub sequence_position: int,
+	#[structopt(long = "order_mode", default_value = 0)]
+	pub order_mode: int,
 }

@@ -4,7 +4,7 @@ use clap::AppSettings;
 use structopt::StructOpt;
 
 use crate::subcommand::params::CoreParams;
-use crate::subcommand::{replace, insert};
+use crate::subcommand::{replace, insert, rename};
 
 pub fn parse_and_execute(args: Args) -> Result<(), String> {
 	let matches = CoreParams::clap()
@@ -23,6 +23,9 @@ pub fn parse_and_execute(args: Args) -> Result<(), String> {
 		}
 		CoreParams::Insert(param) => {
 			insert::run(param)
+		}
+		CoreParams::Rename(param) => {
+			rename::run(param)
 		}
 		_ => {
 			panic!("Can't process")
