@@ -40,7 +40,7 @@ pub struct InsertCmd {
 	/// Shared params
 	#[structopt(flatten)]
 	pub shared: SharedParam,
-	/// Position about which to be inserted.
+	/// Position about which to be inserted.Can be `head`,`middle`,`tail`.
 	#[structopt(long = "position", default_value = "middle")]
 	pub position: String,
 	#[structopt(long = "str")]
