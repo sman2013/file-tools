@@ -62,12 +62,13 @@ pub struct RenameCmd {
 	pub shard_str: String,
 	#[structopt(long = "connector", default_value = "")]
 	pub connector: String,
-	#[structopt(long = "sequence_mode", default_value = 0)]
-	pub sequence_mode: int,
-	#[structopt(long = "sequence_start", default_value = 0)]
-	pub sequence_start: int,
-	#[structopt(long = "sequence_position", default_value = 0)]
-	pub sequence_position: int,
-	#[structopt(long = "order_mode", default_value = 0)]
-	pub order_mode: int,
+	#[structopt(long = "sequence_mode", default_value = "0")]
+	pub sequence_mode: u16,
+	#[structopt(long = "sequence_start", default_value = "0")]
+	pub sequence_start: u16,
+	#[structopt(long = "sequence_position", default_value = "0")]
+	pub sequence_position: u16,
+	#[structopt(long = "order_mode", default_value = "0")]
+	pub order_mode: u8,
 }
+
