@@ -58,16 +58,19 @@ pub struct RenameCmd {
 	/// Shared params
 	#[structopt(flatten)]
 	pub shared: SharedParam,
+	/// Remain the name.
+	#[structopt(long = "remain")]
+	pub remain: bool,
 	#[structopt(long = "shard-str", default_value = "")]
 	pub shard_str: String,
 	#[structopt(long = "connector", default_value = "")]
 	pub connector: String,
 	#[structopt(long = "sequence_mode", default_value = "0")]
-	pub sequence_mode: u16,
-	#[structopt(long = "sequence_start", default_value = "0")]
+	pub sequence_mode: u8,
+	#[structopt(long = "sequence_start", default_value = "1")]
 	pub sequence_start: u16,
 	#[structopt(long = "sequence_position", default_value = "0")]
-	pub sequence_position: u16,
+	pub sequence_position: u8,
 	#[structopt(long = "order_mode", default_value = "0")]
 	pub order_mode: u8,
 }
